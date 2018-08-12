@@ -4,7 +4,6 @@ namespace PhoenixRVD\PHPUnitDataProviderYAML;
 
 class FixturesLoaderTest extends TestCase
 {
-
     /**
      * @test
      * @expectedException \PhoenixRVD\PHPUnitDataProviderYAML\FixtureFileNotFoundException
@@ -56,5 +55,4 @@ class FixturesLoaderTest extends TestCase
         $data = $this->loadFixture('validFixture');
         self::assertArrayHasKey('DataSet1', $data);
     }
-
 }

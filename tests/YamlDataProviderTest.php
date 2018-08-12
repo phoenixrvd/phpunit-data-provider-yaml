@@ -4,7 +4,6 @@ namespace PhoenixRVD\PHPUnitDataProviderYAML;
 
 class YamlDataProviderTest extends TestCase
 {
-
     use YamlDataProvider;
 
     /**
@@ -18,5 +17,4 @@ class YamlDataProviderTest extends TestCase
         $data = $this->yamlDataProvider('validFixture');
         self::assertArrayHasKey('DataSet1', $data);
     }
-
 }

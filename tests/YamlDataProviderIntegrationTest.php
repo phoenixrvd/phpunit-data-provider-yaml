@@ -4,7 +4,6 @@ namespace PhoenixRVD\PHPUnitDataProviderYAML;
 
 class YamlDataProviderIntegrationTest extends TestCase
 {
-
     use YamlDataProvider;
 
     /**
@@ -19,5 +18,4 @@ class YamlDataProviderIntegrationTest extends TestCase
     {
         self::assertEquals($result, $a + $b);
     }
-
 }

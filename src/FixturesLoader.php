@@ -6,7 +6,6 @@ use Symfony\Component\Yaml\Yaml;
 
 class FixturesLoader
 {
-
     private $reflection;
 
     public function __construct($testCaseObject)
@@ -17,7 +16,7 @@ class FixturesLoader
     public function loadDataSets($fileBaseName): array
     {
         $fixturesFilePath = $this->getFixtureGlobalFilePath($fileBaseName);
-        if (!file_exists($fixturesFilePath)) {
+        if (! file_exists($fixturesFilePath)) {
             $message = "Fixture file not found [$fixturesFilePath]";
             throw new FixtureFileNotFoundException($message);
         }
@@ -31,7 +30,7 @@ class FixturesLoader
         $dataSetsData = Yaml::parse($yamlContent);
 
         foreach ($dataSetsData as $dataSetName => $dataSet) {
-            if (!\is_array($dataSet)) {
+            if (! \is_array($dataSet)) {
                 $message = "Fixture file has no data sets [$fixturesFilePath]";
                 throw new FixtureFileIsInvalidException($message);
             }
@@ -47,9 +46,8 @@ class FixturesLoader
 
         return implode('/', [
             \dirname($classFilePath),
-            $className . 'Fixtures',
-            $fileName . '.fixture.yaml',
+            $className.'Fixtures',
+            $fileName.'.fixture.yaml',
         ]);
     }
-
 }
