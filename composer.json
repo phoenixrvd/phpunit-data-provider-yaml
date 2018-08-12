@@ -1,0 +1,41 @@
+{
+    "name": "phoenixrvd/phpunit-data-provider-yaml",
+    "description": "Allow to use YAML files to storing a data for PHP-Unit-DataProviders",
+    "type": "library",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Viacheslav Wolf",
+            "email": "phoenixrvd@yahoo.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.1|^7.2|^5.6",
+        "symfony/yaml": "^4|^3|^2",
+        "phpunit/phpunit": "^7|^6|^5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhoenixRVD\\PHPUnitDataProviderYAML\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhoenixRVD\\PHPUnitDataProviderYAML\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phpunit_data_provider_yaml:test": [
+            "@composer install",
+            "@php vendor/bin/phpunit --configuration phpunit.xml"
+        ],
+        "phpunit_data_provider_yaml:toc": [
+            "doctoc README.md --notitle"
+        ]
+    },
+    "scripts-descriptions": {
+        "phpunit_data_provider_yaml:test": "Run all Tests",
+        "phpunit_data_provider_yaml:toc": "Refresh TOC in README"
+    }
+}
