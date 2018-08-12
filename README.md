@@ -23,7 +23,8 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 This library allow you to use YAML files to storing a data for
- [PHPUnit-Data providers](https://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#data-providers).
+ [PHPUnit-Data providers](https://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#data-providers) and 
+make the tests ease to read. 
  
 ## Installation
 
