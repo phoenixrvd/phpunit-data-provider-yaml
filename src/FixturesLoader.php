@@ -13,7 +13,15 @@ class FixturesLoader
         $this->reflection = new \ReflectionClass($testCaseObject);
     }
 
-    public function loadDataSets($fileBaseName): array
+    /**
+     * @param $fileBaseName
+     * @return array
+     *
+     * @throws FixtureFileIsEmptyException
+     * @throws FixtureFileIsInvalidException
+     * @throws FixtureFileNotFoundException
+     */
+    public function loadDataSets($fileBaseName)
     {
         $fixturesFilePath = $this->getFixtureGlobalFilePath($fileBaseName);
         if (! file_exists($fixturesFilePath)) {
@@ -39,7 +47,7 @@ class FixturesLoader
         return $dataSetsData;
     }
 
-    private function getFixtureGlobalFilePath($fileName): string
+    private function getFixtureGlobalFilePath($fileName)
     {
         $classFilePath = $this->reflection->getFileName();
         $className = $this->reflection->getShortName();

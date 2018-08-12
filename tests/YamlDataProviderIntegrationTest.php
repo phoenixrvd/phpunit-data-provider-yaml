@@ -14,7 +14,7 @@ class YamlDataProviderIntegrationTest extends TestCase
      * @param int $b
      * @param int $result
      */
-    public function calcSum(int $a, int $b, int $result): void
+    public function calcSum($a, $b, $result)
     {
         self::assertEquals($result, $a + $b);
     }
