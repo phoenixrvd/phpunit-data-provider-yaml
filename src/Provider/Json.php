@@ -7,6 +7,7 @@ class Json extends AbstractFileProvider
     protected function getDataSets($fileGlobalPath)
     {
         $content = file_get_contents($fileGlobalPath);
+
         return json_decode($content, true);
     }
 

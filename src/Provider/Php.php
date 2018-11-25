@@ -6,7 +6,7 @@ class Php extends AbstractFileProvider
 {
     protected function getDataSets($fileGlobalPath)
     {
-        /** @noinspection PhpIncludeInspection */
+        /* @noinspection PhpIncludeInspection */
         return include $fileGlobalPath;
     }
 

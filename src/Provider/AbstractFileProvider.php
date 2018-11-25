@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 abstract class AbstractFileProvider
 {
-
     private $reflection;
 
     /**
@@ -28,7 +27,7 @@ abstract class AbstractFileProvider
     {
         $fileGlobalPath = $this->getFixtureGlobalFilePath($methodName);
 
-        if (!file_exists($fileGlobalPath)) {
+        if (! file_exists($fileGlobalPath)) {
             throw $this->makeError("Fixture file not found [$fileGlobalPath]");
         }
 
@@ -37,12 +36,12 @@ abstract class AbstractFileProvider
         }
 
         $dataSets = $this->getDataSets($fileGlobalPath);
-        if (!$this->isDataPartValid($dataSets)) {
+        if (! $this->isDataPartValid($dataSets)) {
             throw $this->makeError("Fixture file has no data sets  [$fileGlobalPath]");
         }
 
         foreach ($dataSets as $dataSetName => $dataSet) {
-            if (!$this->isDataPartValid($dataSet)) {
+            if (! $this->isDataPartValid($dataSet)) {
                 throw $this->makeError("Fixture file has no data sets  [$fileGlobalPath]");
             }
         }
@@ -59,7 +58,7 @@ abstract class AbstractFileProvider
 
     protected function isDataPartValid($dataSetPart)
     {
-        return !empty($dataSetPart) && \is_array($dataSetPart);
+        return ! empty($dataSetPart) && \is_array($dataSetPart);
     }
 
     protected function makeError($validationFailMessage)
@@ -76,15 +75,15 @@ abstract class AbstractFileProvider
         $fixtureFileName = implode('.', [
             $testMethodName,
             'fixture',
-            $this->getFileExtension()
-        ]) ;
+            $this->getFileExtension(),
+        ]);
 
         $classFilePath = $this->reflection->getFileName();
         $className = $this->reflection->getShortName();
 
         $fileGlobalPath = implode('/', [
             \dirname($classFilePath),
-            $className . 'Fixtures',
+            $className.'Fixtures',
             $fixtureFileName,
         ]);
 
@@ -95,5 +94,4 @@ abstract class AbstractFileProvider
      * @return string
      */
     abstract protected function getFileExtension();
-
 }

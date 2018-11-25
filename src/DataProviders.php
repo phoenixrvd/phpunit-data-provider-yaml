@@ -2,8 +2,8 @@
 
 namespace PhoenixRVD\PHPUnitDataProviderYAML;
 
-use PhoenixRVD\PHPUnitDataProviderYAML\Provider\Json;
 use PhoenixRVD\PHPUnitDataProviderYAML\Provider\Php;
+use PhoenixRVD\PHPUnitDataProviderYAML\Provider\Json;
 use PhoenixRVD\PHPUnitDataProviderYAML\Provider\Yaml;
 
 trait DataProviders

@@ -11,7 +11,7 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
      * Path-Format: ./<__CLASS__>/<__METHOD__>.fixture.<__FILE_EXTENSION__>
      *      __CLASS__ → ExampleTest
      *      __METHOD__ → calcSumWithYaml
-     *      __FILE_EXTENSION__ → yaml (For Php or Json must be phpDataProvider or jsonDataProvider)
+     *      __FILE_EXTENSION__ → yaml (For Php or Json must be phpDataProvider or jsonDataProvider).
      *
      * @test
      * @dataProvider yamlDataProvider

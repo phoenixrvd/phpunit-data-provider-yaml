@@ -1,4 +1,6 @@
-<?php return [
+<?php
+
+return [
     'Integers' => [
         'a' => 2,
         'b' => 3,
