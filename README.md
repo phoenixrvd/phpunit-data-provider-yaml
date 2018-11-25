@@ -1,4 +1,4 @@
-# PHPUnit - YAML data provider
+# PHPUnit - data providers
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg)](https://php.net/)
 [![Latest Stable Version](https://poser.pugx.org/phoenixrvd/phpunit-data-provider-yaml/v/stable.svg)](https://packagist.org/packages/phoenixrvd/phpunit-data-provider-yaml)
@@ -16,14 +16,13 @@
 
 
 - [Installation](#installation)
-- [Example](#example)
+- [How to use](#how-to-use)
 - [Testing](#testing)
 - [Copyright and license](#copyright-and-license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-Magic helper to autoload YAML files for [data providers](https://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#data-providers) in [PHPUnit](https://phpunit.de/index.html).
-
+Magic helper to autoload YAML, JSON or PHP files for [data providers](https://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#data-providers) in [PHPUnit](https://phpunit.de/index.html).
  
 ## Installation
 
@@ -33,41 +32,9 @@ Install the latest version with
 composer require phoenixrvd/phpunit-data-provider-yaml
 ```
 
-## Example
+## How to use
 
-* Create the TestCase
-
-```php
-<?php
-
-use PHPUnit\Framework\TestCase;
-
-class CalculatorTest extends TestCase
-{
-    use \PhoenixRVD\PHPUnitDataProviderYAML\YamlDataProvider;
-    
-    /**
-     * @test
-     * @dataProvider yamlDataProvider
-     */
-    public function calcSum(int $a, int $b, int $result): void
-    {
-        self::assertEquals($result, $a + $b);
-    }
-}
-```
-
-* Create fixtures directory `CalculatorTestFixtures`, which locate at the same path as `CalculatorTest`
-* Create fixtures file named `calcSum.fixtures.yaml` in this directory
-
-```yaml
-Integers:
-  a: 2
-  b: 3
-  result: 5
-```
-
-* Run the test
+See [Example](./tests/ExampleTest.php) implementation.
 
 ## Testing
 
