@@ -51,7 +51,9 @@ abstract class AbstractFileProvider
      */
     protected function validateDataPart($dataSetPart, $errorMessage)
     {
-        if(empty($dataSetPart) || !\is_array($dataSetPart)) throw $this->makeError($errorMessage);
+        if (empty($dataSetPart) || ! \is_array($dataSetPart)) {
+            throw $this->makeError($errorMessage);
+        }
     }
 
     protected function makeError($validationFailMessage)
