@@ -3,7 +3,6 @@
 namespace PhoenixRVD\PHPUnitDataProviderYAML;
 
 use PhoenixRVD\PHPUnitDataProviderYAML\Provider\InvalidSetException;
-use phpDocumentor\Reflection\Types\Void_;
 
 class DataProvidersTest extends \PHPUnit\Framework\TestCase
 {
@@ -86,7 +85,7 @@ class DataProvidersTest extends \PHPUnit\Framework\TestCase
 
     public function expectExceptionMessagePart($regExp)
     {
-        if(method_exists($this, 'expectExceptionMessageMatches')) {
+        if (method_exists($this, 'expectExceptionMessageMatches')) {
             return $this->expectExceptionMessageMatches($regExp);
         }
 
