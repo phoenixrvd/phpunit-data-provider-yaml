@@ -27,23 +27,11 @@ abstract class AbstractFileProvider
     {
         $fileGlobalPath = $this->getFixtureGlobalFilePath($methodName);
 
-        if (! file_exists($fileGlobalPath)) {
-            throw $this->makeError("Fixture file not found [$fileGlobalPath]");
-        }
-
-        if (filesize($fileGlobalPath) === 0) {
-            throw $this->makeError("Fixture file is empty [$fileGlobalPath]");
-        }
-
         $dataSets = $this->getDataSets($fileGlobalPath);
-        if (! $this->isDataPartValid($dataSets)) {
-            throw $this->makeError("Fixture file has no data sets  [$fileGlobalPath]");
-        }
+        $this->validateDataPart($dataSets, "Fixture file has no data sets  [$fileGlobalPath]");
 
         foreach ($dataSets as $dataSetName => $dataSet) {
-            if (! $this->isDataPartValid($dataSet)) {
-                throw $this->makeError("Fixture file has no data sets  [$fileGlobalPath]");
-            }
+            $this->validateDataPart($dataSet, "Fixture file has no data sets  [$fileGlobalPath]");
         }
 
         return $dataSets;
@@ -56,9 +44,14 @@ abstract class AbstractFileProvider
      */
     abstract protected function getDataSets($fileGlobalPath);
 
-    protected function isDataPartValid($dataSetPart)
+    /**
+     * @param mixed $dataSetPart
+     * @param string $errorMessage
+     * @throws InvalidSetException
+     */
+    protected function validateDataPart($dataSetPart, $errorMessage)
     {
-        return ! empty($dataSetPart) && \is_array($dataSetPart);
+        if(empty($dataSetPart) || !\is_array($dataSetPart)) throw $this->makeError($errorMessage);
     }
 
     protected function makeError($validationFailMessage)
@@ -69,6 +62,7 @@ abstract class AbstractFileProvider
     /**
      * @param string $testMethodName
      * @return string
+     * @throws InvalidSetException
      */
     protected function getFixtureGlobalFilePath($testMethodName)
     {
@@ -86,6 +80,14 @@ abstract class AbstractFileProvider
             $className.'Fixtures',
             $fixtureFileName,
         ]);
+
+        if (! file_exists($fileGlobalPath)) {
+            throw $this->makeError("Fixture file not found [$fileGlobalPath]");
+        }
+
+        if (filesize($fileGlobalPath) === 0) {
+            throw $this->makeError("Fixture file is empty [$fileGlobalPath]");
+        }
 
         return $fileGlobalPath;
     }
