@@ -29,7 +29,7 @@ Magic helper to autoload YAML, JSON or PHP files for [data providers](https://ph
 Install the latest version with
 
 ```bash
-composer require phoenixrvd/phpunit-data-provider-yaml
+composer require --dev phoenixrvd/phpunit-data-provider-yaml
 ```
 
 ## How to use
